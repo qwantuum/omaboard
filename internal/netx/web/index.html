@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omaboard — мультиплеер</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="toolbar">
+  <div class="group" id="tools">
+    <button data-tool="select" class="active" title="Выбор и перемещение (V)">⬚</button>
+    <button data-tool="hand" title="Рука — панорамирование (H)">✋</button>
+    <button data-tool="pen" title="Перо (P)">✏</button>
+    <button data-tool="line" title="Линия (L)">╱</button>
+    <button data-tool="rect" title="Прямоугольник (R)">▭</button>
+    <button data-tool="ellipse" title="Эллипс (O)">⬭</button>
+    <button data-tool="text" title="Текст (T)">T</button>
+    <button data-tool="eraser" title="Ластик (E)">⌫</button>
+  </div>
+  <div class="group">
+    <input type="color" id="color" value="#d8dee9" title="Цвет">
+    <input type="range" id="strokeW" min="1" max="32" value="3" title="Толщина">
+  </div>
+  <div class="group">
+    <button id="undo" title="Отменить (Ctrl+Z)">↶</button>
+    <button id="redo" title="Вернуть (Ctrl+Y)">↷</button>
+    <button id="clear" title="Очистить доску">🗑</button>
+    <button id="exportPng" title="Скачать PNG">💾</button>
+  </div>
+</header>
+<main><canvas id="board"></canvas></main>
+<footer id="status">
+  <span id="conn" class="dot"></span>
+  <span id="connText">подключение…</span>
+  <span class="spacer"></span>
+  <span id="count">0 объектов</span>
+  <span class="sep"></span>
+  <span id="toolName">Выбор</span>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+:root {
+  --window: #191c23;
+  --surface: #2e3440;
+  --canvas: #222730;
+  --fg: #d8dee9;
+  --muted: #adb5c4;
+  --accent: #88c0d0;
+  --border: #3b4252;
+  --hover: #3b4252;
+  --on-accent: #191c23;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  display: flex; flex-direction: column;
+  font-family: system-ui, sans-serif;
+  background: var(--window); color: var(--fg);
+}
+#toolbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 12px; background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.group { display: flex; align-items: center; gap: 4px; }
+.group + .group { padding-left: 14px; border-left: 1px solid var(--border); }
+#toolbar button {
+  min-width: 36px; height: 34px; border: 1px solid transparent;
+  border-radius: 8px; background: transparent; color: var(--fg);
+  font-size: 16px; cursor: pointer; transition: background .12s;
+}
+#toolbar button:hover { background: var(--hover); }
+#toolbar button.active {
+  background: var(--accent); color: var(--on-accent); font-weight: 600;
+}
+#color {
+  width: 36px; height: 34px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--hover); cursor: pointer; padding: 2px;
+}
+#strokeW { width: 110px; accent-color: var(--accent); }
+main { flex: 1; position: relative; }
+#board {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  cursor: crosshair; background: var(--canvas); display: block;
+  touch-action: none;
+}
+#status {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px; font-size: 13px; color: var(--muted);
+  background: var(--surface); border-top: 1px solid var(--border);
+}
+#status .spacer { flex: 1; }
+#status .sep { width: 1px; height: 14px; background: var(--border); }
+.dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #e06c75; display: inline-block;
+}
+.dot.ok { background: #98c379; }
